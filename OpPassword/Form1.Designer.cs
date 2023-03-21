@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.passwordList = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -40,6 +40,12 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.setControlTextButton = new System.Windows.Forms.Button();
+            this.showControlTextButton = new System.Windows.Forms.Button();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -53,16 +59,16 @@
             this.textBoxName.Size = new System.Drawing.Size(242, 26);
             this.textBoxName.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(330, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(178, 26);
-            this.textBox1.TabIndex = 3;
+            this.textBoxPassword.BackColor = System.Drawing.Color.Black;
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxPassword.ForeColor = System.Drawing.Color.White;
+            this.textBoxPassword.Location = new System.Drawing.Point(330, 39);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(178, 26);
+            this.textBoxPassword.TabIndex = 3;
             // 
             // passwordList
             // 
@@ -74,7 +80,7 @@
             this.passwordList.FormattingEnabled = true;
             this.passwordList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.passwordList.ItemHeight = 20;
-            this.passwordList.Location = new System.Drawing.Point(43, 126);
+            this.passwordList.Location = new System.Drawing.Point(43, 207);
             this.passwordList.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.passwordList.Name = "passwordList";
             this.passwordList.Size = new System.Drawing.Size(159, 240);
@@ -87,8 +93,8 @@
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(43, 101);
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(43, 182);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 0);
@@ -106,7 +112,7 @@
             this.passwordList2.FormattingEnabled = true;
             this.passwordList2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.passwordList2.ItemHeight = 20;
-            this.passwordList2.Location = new System.Drawing.Point(192, 126);
+            this.passwordList2.Location = new System.Drawing.Point(192, 207);
             this.passwordList2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.passwordList2.Name = "passwordList2";
             this.passwordList2.Size = new System.Drawing.Size(159, 240);
@@ -125,7 +131,7 @@
             this.passwordList3.FormattingEnabled = true;
             this.passwordList3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.passwordList3.ItemHeight = 20;
-            this.passwordList3.Location = new System.Drawing.Point(349, 126);
+            this.passwordList3.Location = new System.Drawing.Point(349, 207);
             this.passwordList3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.passwordList3.Name = "passwordList3";
             this.passwordList3.Size = new System.Drawing.Size(159, 240);
@@ -140,7 +146,7 @@
             this.displayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("displayButton.BackgroundImage")));
             this.displayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.displayButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.displayButton.Location = new System.Drawing.Point(330, 387);
+            this.displayButton.Location = new System.Drawing.Point(330, 468);
             this.displayButton.Name = "displayButton";
             this.displayButton.Size = new System.Drawing.Size(75, 34);
             this.displayButton.TabIndex = 9;
@@ -154,7 +160,7 @@
             this.removeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.removeButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.removeButton.Location = new System.Drawing.Point(232, 387);
+            this.removeButton.Location = new System.Drawing.Point(232, 468);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 34);
             this.removeButton.TabIndex = 8;
@@ -167,7 +173,7 @@
             this.addButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButton.BackgroundImage")));
             this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButton.Location = new System.Drawing.Point(127, 387);
+            this.addButton.Location = new System.Drawing.Point(127, 468);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 34);
             this.addButton.TabIndex = 7;
@@ -188,12 +194,87 @@
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(43, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Search";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(332, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Password";
+            // 
+            // textBoxPasswordConfirm
+            // 
+            this.textBoxPasswordConfirm.BackColor = System.Drawing.Color.Black;
+            this.textBoxPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxPasswordConfirm.ForeColor = System.Drawing.Color.White;
+            this.textBoxPasswordConfirm.Location = new System.Drawing.Point(330, 71);
+            this.textBoxPasswordConfirm.Name = "textBoxPasswordConfirm";
+            this.textBoxPasswordConfirm.PasswordChar = '*';
+            this.textBoxPasswordConfirm.Size = new System.Drawing.Size(178, 26);
+            this.textBoxPasswordConfirm.TabIndex = 15;
+            // 
+            // setControlTextButton
+            // 
+            this.setControlTextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.setControlTextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.setControlTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.setControlTextButton.Location = new System.Drawing.Point(330, 103);
+            this.setControlTextButton.Name = "setControlTextButton";
+            this.setControlTextButton.Size = new System.Drawing.Size(178, 23);
+            this.setControlTextButton.TabIndex = 16;
+            this.setControlTextButton.Text = "Set control text";
+            this.setControlTextButton.UseVisualStyleBackColor = false;
+            this.setControlTextButton.Click += new System.EventHandler(this.setControlTextButton_Click);
+            // 
+            // showControlTextButton
+            // 
+            this.showControlTextButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.showControlTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.showControlTextButton.Location = new System.Drawing.Point(330, 132);
+            this.showControlTextButton.Name = "showControlTextButton";
+            this.showControlTextButton.Size = new System.Drawing.Size(178, 23);
+            this.showControlTextButton.TabIndex = 17;
+            this.showControlTextButton.Text = "Show control text";
+            this.showControlTextButton.UseVisualStyleBackColor = false;
+            this.showControlTextButton.Click += new System.EventHandler(this.showControlTextButton_Click);
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.ForeColor = System.Drawing.Color.OrangeRed;
+            this.labelWarning.Location = new System.Drawing.Point(44, 510);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(464, 23);
+            this.labelWarning.TabIndex = 18;
+            this.labelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.ClientSize = new System.Drawing.Size(555, 450);
+            this.ClientSize = new System.Drawing.Size(555, 542);
+            this.Controls.Add(this.labelWarning);
+            this.Controls.Add(this.showControlTextButton);
+            this.Controls.Add(this.setControlTextButton);
+            this.Controls.Add(this.textBoxPasswordConfirm);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.passwordList3);
             this.Controls.Add(this.passwordList2);
             this.Controls.Add(this.displayButton);
@@ -201,7 +282,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.passwordList);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.textBoxName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -215,7 +296,7 @@
         #endregion
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.ListBox passwordList;
         private System.Windows.Forms.Label label2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -224,6 +305,12 @@
         private System.Windows.Forms.Button displayButton;
         private System.Windows.Forms.ListBox passwordList2;
         private System.Windows.Forms.ListBox passwordList3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxPasswordConfirm;
+        private System.Windows.Forms.Button setControlTextButton;
+        private System.Windows.Forms.Button showControlTextButton;
+        private System.Windows.Forms.Label labelWarning;
     }
 }
 

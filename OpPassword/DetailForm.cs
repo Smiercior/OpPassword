@@ -13,9 +13,12 @@ namespace OpPassword
     public partial class DetailForm : Form
     {
         PasswordObject selectedPasswordObject;
-        public DetailForm(PasswordObject selectedPasswordObject)
+        private string password { get; set; }
+
+        public DetailForm(PasswordObject selectedPasswordObject, string password)
         {
             InitializeComponent();
+            this.password = password;
             this.selectedPasswordObject = selectedPasswordObject;
             UpdateComponents();
         }

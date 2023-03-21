@@ -16,6 +16,7 @@ namespace OpPassword
     {
         // Zmienne
         string fileName = "passwords.json";
+        string fileName2 = "controlText.txt";
         List<PasswordObject> passwordObjects;
         List<PasswordObject> filteredPasswordObjects;
 
@@ -27,6 +28,9 @@ namespace OpPassword
 
             // Check if passwords file exists
             if (!File.Exists(fileName)) File.Create(fileName);
+
+            // Check if control text file exists
+            if (!File.Exists(fileName2)) File.Create(fileName2);
 
             // Initialize form components
             InitializeComponent();
@@ -77,6 +81,28 @@ namespace OpPassword
             passwordList3.Items.Clear();
         }
 
+        // Check if password is correct
+        private bool ValidatePassword()
+        {
+            if(textBoxPassword.Text.Length == 0)
+            {
+                labelWarning.Text = "You must enter the password";
+                return false;
+            }
+            else if(textBoxPassword.Text.Length < 10)
+            {
+                labelWarning.Text = "Password length should be at least 10 characters";
+                return false;
+            }
+            else if(textBoxPassword.Text != textBoxPasswordConfirm.Text)
+            {
+                labelWarning.Text = "Both passwords must be the same";
+                return false;
+            }
+
+            return true;
+        }
+
         // Filter password list by password name
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -119,38 +145,45 @@ namespace OpPassword
         // Add new password
         private void addButton_Click(object sender, EventArgs e)
         {
-            using(var newForm = new NewForm())
+            if(ValidatePassword())
             {
-                newForm.StartPosition = FormStartPosition.CenterParent;
-                var result = newForm.ShowDialog(this);
-                
-                if(result == DialogResult.Yes)
+                using (var newForm = new NewForm(textBoxPassword.Text))
                 {
-                    PasswordObject newPasswordObject = newForm.newPasswordObject;
-                    passwordObjects.Add(newPasswordObject);
+                    newForm.StartPosition = FormStartPosition.CenterParent;
+                    var result = newForm.ShowDialog(this);
 
-                    ClearList();
-                    ReadPasswordToList(passwordObjects);
-                    SaveJsonData();
-                }
-            }
-        }
-
-        private void displayButton_Click(object sender, EventArgs e)
-        {
-            if(passwordList.SelectedItem != null)
-            {
-                PasswordObject selectedPasswordObject = passwordObjects.Find((passwordObject) => passwordObject.Name == passwordList.SelectedItem.ToString());
-                if (selectedPasswordObject != null)
-                {
-                    using (var detailForm = new DetailForm(selectedPasswordObject))
+                    if (result == DialogResult.Yes)
                     {
-                        detailForm.StartPosition = FormStartPosition.CenterParent;
-                        var result = detailForm.ShowDialog(this);
+                        PasswordObject newPasswordObject = newForm.newPasswordObject;
+                        passwordObjects.Add(newPasswordObject);
+
+                        ClearList();
+                        ReadPasswordToList(passwordObjects);
                         SaveJsonData();
                     }
                 }
-            } 
+            }    
+        }
+
+        // Show password object data in nwe form
+        private void displayButton_Click(object sender, EventArgs e)
+        {
+            if(ValidatePassword())
+            {
+                if (passwordList.SelectedItem != null)
+                {
+                    PasswordObject selectedPasswordObject = passwordObjects.Find((passwordObject) => passwordObject.Name == passwordList.SelectedItem.ToString());
+                    if (selectedPasswordObject != null)
+                    {
+                        using (var detailForm = new DetailForm(selectedPasswordObject, textBoxPassword.Text))
+                        {
+                            detailForm.StartPosition = FormStartPosition.CenterParent;
+                            var result = detailForm.ShowDialog(this);
+                            SaveJsonData();
+                        }
+                    }
+                }
+            }         
         }
 
         private void passwordList_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,6 +205,41 @@ namespace OpPassword
             int index = passwordList3.SelectedIndex;
             passwordList.SelectedIndex = index;
             passwordList2.SelectedIndex = index;
+        }
+
+        // On set control text button click, open a new form, where the user can type control text
+        // This control text is used to identify if the password is correct ( after decrypting, it should make sense to the user )
+        private void setControlTextButton_Click(object sender, EventArgs e)
+        {
+            if (ValidatePassword())
+            {
+                using (var setControlTextForm = new SetControlTextForm())
+                {
+                    setControlTextForm.StartPosition = FormStartPosition.CenterParent;
+                    var result = setControlTextForm.ShowDialog(this);
+                    if (result == DialogResult.Yes)
+                    {
+                        string controlText = setControlTextForm.controlText;
+                        // TODO - encypt that text and save to file //
+                    }
+                }
+            }
+        }
+
+        // On show control text button click
+        private void showControlTextButton_Click(object sender, EventArgs e)
+        { 
+            if(ValidatePassword())
+            {
+                // TODO - read control text from file and decrypt it //
+                string controlText = "test";
+
+                using (var showControlTextForm = new ShowControlTextForm(controlText))
+                {
+                    showControlTextForm.StartPosition = FormStartPosition.CenterParent;
+                    var result = showControlTextForm.ShowDialog(this);
+                }
+            }          
         }
     }
 }

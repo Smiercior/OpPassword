@@ -14,10 +14,12 @@ namespace OpPassword
     public partial class NewForm : Form
     {
         public PasswordObject newPasswordObject;
+        private string password { get; set; }
 
-        public NewForm()
+        public NewForm(string password)
         {
             InitializeComponent();
+            this.password = password;
         }
 
         // Validate data in text boxes

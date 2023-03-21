@@ -1,2 +1,5 @@
 # ignore passwords.json file
 OpPassword/bin/Debug/passwords.json
+
+# ignore controlText.txt file
+OpPassword/bin/Debug/controlText.txt

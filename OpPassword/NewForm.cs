@@ -20,6 +20,7 @@ namespace OpPassword
             InitializeComponent();
         }
 
+        // Validate data in text boxes
         bool ValidateTextBoxes()
         {
             if (textBoxName.Text != "" && textBoxUsername.Text != "" && textBoxEmail.Text != "" && textBoxPassword.Text != "")
@@ -33,6 +34,7 @@ namespace OpPassword
             return false;
         }
 
+        // On yes button click
         private void yesButton_Click(object sender, EventArgs e)
         {        
             if(ValidateTextBoxes())
@@ -44,6 +46,7 @@ namespace OpPassword
                 newPasswordObject.Username = textBoxUsername.Text;
                 newPasswordObject.Email = textBoxEmail.Text;
                 newPasswordObject.Password = textBoxPassword.Text;
+                newPasswordObject.Link = textBoxLink.Text;
                 newPasswordObject.Other = textBoxOther.Text;
 
                 this.DialogResult = DialogResult.Yes;
@@ -54,6 +57,7 @@ namespace OpPassword
             }
         }
 
+        // On no button click
         private void noButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.No;

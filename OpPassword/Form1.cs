@@ -25,6 +25,9 @@ namespace OpPassword
             passwordObjects = new List<PasswordObject>();
             filteredPasswordObjects = new List<PasswordObject>();
 
+            // Check if passwords file exists
+            if (!File.Exists(fileName)) File.Create(fileName);
+
             // Initialize form components
             InitializeComponent();
 
@@ -44,9 +47,15 @@ namespace OpPassword
 
         // Read list of PasswordObject from file
         void ReadJsonData()
-        {
+        {  
             string jsonString = File.ReadAllText(fileName);
-            passwordObjects = JsonSerializer.Deserialize<List<PasswordObject>>(jsonString);
+            try
+            {
+                passwordObjects = JsonSerializer.Deserialize<List<PasswordObject>>(jsonString);
+            }
+            catch (JsonException)
+            {
+            }     
         }
 
         // Read passwords to list
@@ -125,6 +134,44 @@ namespace OpPassword
                     SaveJsonData();
                 }
             }
+        }
+
+        private void displayButton_Click(object sender, EventArgs e)
+        {
+            if(passwordList.SelectedItem != null)
+            {
+                PasswordObject selectedPasswordObject = passwordObjects.Find((passwordObject) => passwordObject.Name == passwordList.SelectedItem.ToString());
+                if (selectedPasswordObject != null)
+                {
+                    using (var detailForm = new DetailForm(selectedPasswordObject))
+                    {
+                        detailForm.StartPosition = FormStartPosition.CenterParent;
+                        var result = detailForm.ShowDialog(this);
+                        SaveJsonData();
+                    }
+                }
+            } 
+        }
+
+        private void passwordList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = passwordList.SelectedIndex;
+            passwordList2.SelectedIndex = index;
+            passwordList3.SelectedIndex = index;
+        }
+
+        private void passwordList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = passwordList2.SelectedIndex;
+            passwordList.SelectedIndex = index;
+            passwordList3.SelectedIndex = index;
+        }
+
+        private void passwordList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = passwordList3.SelectedIndex;
+            passwordList.SelectedIndex = index;
+            passwordList2.SelectedIndex = index;
         }
     }
 }

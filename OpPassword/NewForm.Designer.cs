@@ -41,6 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.noButton = new System.Windows.Forms.Button();
             this.yesButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxLink = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -144,7 +146,7 @@
             this.textBoxOther.BackColor = System.Drawing.Color.Black;
             this.textBoxOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxOther.ForeColor = System.Drawing.Color.White;
-            this.textBoxOther.Location = new System.Drawing.Point(31, 420);
+            this.textBoxOther.Location = new System.Drawing.Point(31, 500);
             this.textBoxOther.MaxLength = 256;
             this.textBoxOther.Name = "textBoxOther";
             this.textBoxOther.Size = new System.Drawing.Size(242, 26);
@@ -155,7 +157,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(31, 377);
+            this.label5.Location = new System.Drawing.Point(31, 457);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 0);
@@ -169,7 +171,7 @@
             this.noButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("noButton.BackgroundImage")));
             this.noButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.noButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.noButton.Location = new System.Drawing.Point(163, 470);
+            this.noButton.Location = new System.Drawing.Point(161, 545);
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(75, 34);
             this.noButton.TabIndex = 17;
@@ -182,19 +184,45 @@
             this.yesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("yesButton.BackgroundImage")));
             this.yesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.yesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.yesButton.Location = new System.Drawing.Point(54, 470);
+            this.yesButton.Location = new System.Drawing.Point(52, 545);
             this.yesButton.Name = "yesButton";
             this.yesButton.Size = new System.Drawing.Size(75, 34);
             this.yesButton.TabIndex = 16;
             this.yesButton.UseVisualStyleBackColor = false;
             this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
             // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(31, 374);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label6.Size = new System.Drawing.Size(242, 25);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Link";
+            // 
+            // textBoxLink
+            // 
+            this.textBoxLink.BackColor = System.Drawing.Color.Black;
+            this.textBoxLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxLink.ForeColor = System.Drawing.Color.White;
+            this.textBoxLink.Location = new System.Drawing.Point(31, 417);
+            this.textBoxLink.MaxLength = 256;
+            this.textBoxLink.Name = "textBoxLink";
+            this.textBoxLink.Size = new System.Drawing.Size(242, 26);
+            this.textBoxLink.TabIndex = 19;
+            // 
             // NewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.ClientSize = new System.Drawing.Size(303, 516);
+            this.ClientSize = new System.Drawing.Size(303, 591);
+            this.Controls.Add(this.textBoxLink);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.yesButton);
             this.Controls.Add(this.textBoxOther);
@@ -228,5 +256,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button noButton;
         private System.Windows.Forms.Button yesButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxLink;
     }
 }

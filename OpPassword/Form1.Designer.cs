@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.passwordList = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.addButton = new System.Windows.Forms.Button();
-            this.removeButton = new System.Windows.Forms.Button();
-            this.displayButton = new System.Windows.Forms.Button();
             this.passwordList2 = new System.Windows.Forms.ListBox();
             this.passwordList3 = new System.Windows.Forms.ListBox();
+            this.displayButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -52,20 +52,6 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(242, 26);
             this.textBoxName.TabIndex = 1;
-            // 
-            // searchButton
-            // 
-            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.searchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchButton.BackgroundImage")));
-            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.searchButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.searchButton.Location = new System.Drawing.Point(291, 39);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(33, 26);
-            this.searchButton.TabIndex = 2;
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // textBox1
             // 
@@ -95,6 +81,7 @@
             this.passwordList.TabIndex = 4;
             this.passwordList.TabStop = false;
             this.passwordList.UseTabStops = false;
+            this.passwordList.SelectedIndexChanged += new System.EventHandler(this.passwordList_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -109,18 +96,56 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Name                          Create date                  Modify date";
             // 
-            // addButton
+            // passwordList2
             // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.addButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButton.BackgroundImage")));
-            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButton.Location = new System.Drawing.Point(127, 387);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 34);
-            this.addButton.TabIndex = 7;
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.passwordList2.BackColor = System.Drawing.Color.Black;
+            this.passwordList2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordList2.ColumnWidth = 20;
+            this.passwordList2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordList2.ForeColor = System.Drawing.Color.White;
+            this.passwordList2.FormattingEnabled = true;
+            this.passwordList2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.passwordList2.ItemHeight = 20;
+            this.passwordList2.Location = new System.Drawing.Point(192, 126);
+            this.passwordList2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.passwordList2.Name = "passwordList2";
+            this.passwordList2.Size = new System.Drawing.Size(159, 240);
+            this.passwordList2.TabIndex = 10;
+            this.passwordList2.TabStop = false;
+            this.passwordList2.UseTabStops = false;
+            this.passwordList2.SelectedIndexChanged += new System.EventHandler(this.passwordList2_SelectedIndexChanged);
+            // 
+            // passwordList3
+            // 
+            this.passwordList3.BackColor = System.Drawing.Color.Black;
+            this.passwordList3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordList3.ColumnWidth = 20;
+            this.passwordList3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordList3.ForeColor = System.Drawing.Color.White;
+            this.passwordList3.FormattingEnabled = true;
+            this.passwordList3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.passwordList3.ItemHeight = 20;
+            this.passwordList3.Location = new System.Drawing.Point(349, 126);
+            this.passwordList3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.passwordList3.Name = "passwordList3";
+            this.passwordList3.Size = new System.Drawing.Size(159, 240);
+            this.passwordList3.TabIndex = 11;
+            this.passwordList3.TabStop = false;
+            this.passwordList3.UseTabStops = false;
+            this.passwordList3.SelectedIndexChanged += new System.EventHandler(this.passwordList3_SelectedIndexChanged);
+            // 
+            // displayButton
+            // 
+            this.displayButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.displayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("displayButton.BackgroundImage")));
+            this.displayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.displayButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.displayButton.Location = new System.Drawing.Point(330, 387);
+            this.displayButton.Name = "displayButton";
+            this.displayButton.Size = new System.Drawing.Size(75, 34);
+            this.displayButton.TabIndex = 9;
+            this.displayButton.UseVisualStyleBackColor = false;
+            this.displayButton.Click += new System.EventHandler(this.displayButton_Click);
             // 
             // removeButton
             // 
@@ -136,55 +161,32 @@
             this.removeButton.UseVisualStyleBackColor = false;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
-            // displayButton
+            // addButton
             // 
-            this.displayButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.displayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("displayButton.BackgroundImage")));
-            this.displayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.displayButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.displayButton.Location = new System.Drawing.Point(330, 387);
-            this.displayButton.Name = "displayButton";
-            this.displayButton.Size = new System.Drawing.Size(75, 34);
-            this.displayButton.TabIndex = 9;
-            this.displayButton.UseVisualStyleBackColor = false;
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.addButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButton.BackgroundImage")));
+            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addButton.Location = new System.Drawing.Point(127, 387);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 34);
+            this.addButton.TabIndex = 7;
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // passwordList2
+            // searchButton
             // 
-            this.passwordList2.BackColor = System.Drawing.Color.Black;
-            this.passwordList2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordList2.ColumnWidth = 20;
-            this.passwordList2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordList2.ForeColor = System.Drawing.Color.White;
-            this.passwordList2.FormattingEnabled = true;
-            this.passwordList2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordList2.ItemHeight = 20;
-            this.passwordList2.Location = new System.Drawing.Point(192, 126);
-            this.passwordList2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.passwordList2.Name = "passwordList2";
-            this.passwordList2.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.passwordList2.Size = new System.Drawing.Size(159, 240);
-            this.passwordList2.TabIndex = 10;
-            this.passwordList2.TabStop = false;
-            this.passwordList2.UseTabStops = false;
-            // 
-            // passwordList3
-            // 
-            this.passwordList3.BackColor = System.Drawing.Color.Black;
-            this.passwordList3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordList3.ColumnWidth = 20;
-            this.passwordList3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordList3.ForeColor = System.Drawing.Color.White;
-            this.passwordList3.FormattingEnabled = true;
-            this.passwordList3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordList3.ItemHeight = 20;
-            this.passwordList3.Location = new System.Drawing.Point(349, 126);
-            this.passwordList3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.passwordList3.Name = "passwordList3";
-            this.passwordList3.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.passwordList3.Size = new System.Drawing.Size(159, 240);
-            this.passwordList3.TabIndex = 11;
-            this.passwordList3.TabStop = false;
-            this.passwordList3.UseTabStops = false;
+            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.searchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchButton.BackgroundImage")));
+            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.searchButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.searchButton.Location = new System.Drawing.Point(291, 39);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(33, 26);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // Form1
             // 

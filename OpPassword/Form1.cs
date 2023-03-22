@@ -103,6 +103,7 @@ namespace OpPassword
             return true;
         }
 
+
         // Filter password list by password name
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -220,7 +221,11 @@ namespace OpPassword
                     if (result == DialogResult.Yes)
                     {
                         string controlText = setControlTextForm.controlText;
-                        // TODO - encypt that text and save to file //
+                        string encryptedControlText = "";
+
+                        EncyprtDecrypt encryptDecrypt = new EncyprtDecrypt(textBoxPassword.Text);
+                        encryptedControlText = encryptDecrypt.Encrypt(controlText);
+                        File.WriteAllText(fileName2, encryptedControlText);
                     }
                 }
             }
@@ -231,9 +236,13 @@ namespace OpPassword
         { 
             if(ValidatePassword())
             {
-                // TODO - read control text from file and decrypt it //
-                string controlText = "test";
+                string encryptedControlText = "";
+                string controlText = "";
 
+                EncyprtDecrypt encryptDecrypt = new EncyprtDecrypt(textBoxPassword.Text);
+                encryptedControlText = File.ReadAllText(fileName2);
+                controlText = encryptDecrypt.Decrypt(encryptedControlText);
+            
                 using (var showControlTextForm = new ShowControlTextForm(controlText))
                 {
                     showControlTextForm.StartPosition = FormStartPosition.CenterParent;

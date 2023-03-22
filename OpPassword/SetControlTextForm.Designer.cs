@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetControlTextForm));
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxControlText = new System.Windows.Forms.TextBox();
             this.noButton = new System.Windows.Forms.Button();
             this.yesButton = new System.Windows.Forms.Button();
+            this.textBoxControlText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -48,20 +48,6 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Enter control text";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxControlText
-            // 
-            this.textBoxControlText.BackColor = System.Drawing.Color.Black;
-            this.textBoxControlText.Enabled = false;
-            this.textBoxControlText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxControlText.ForeColor = System.Drawing.Color.White;
-            this.textBoxControlText.Location = new System.Drawing.Point(46, 88);
-            this.textBoxControlText.MaxLength = 14;
-            this.textBoxControlText.Name = "textBoxControlText";
-            this.textBoxControlText.ReadOnly = true;
-            this.textBoxControlText.Size = new System.Drawing.Size(330, 26);
-            this.textBoxControlText.TabIndex = 9;
-            this.textBoxControlText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // noButton
             // 
@@ -89,15 +75,26 @@
             this.yesButton.UseVisualStyleBackColor = false;
             this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
             // 
+            // textBoxControlText
+            // 
+            this.textBoxControlText.BackColor = System.Drawing.Color.Black;
+            this.textBoxControlText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxControlText.ForeColor = System.Drawing.Color.White;
+            this.textBoxControlText.Location = new System.Drawing.Point(44, 92);
+            this.textBoxControlText.MaxLength = 14;
+            this.textBoxControlText.Name = "textBoxControlText";
+            this.textBoxControlText.Size = new System.Drawing.Size(332, 26);
+            this.textBoxControlText.TabIndex = 13;
+            // 
             // SetControlTextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(427, 179);
+            this.Controls.Add(this.textBoxControlText);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.yesButton);
-            this.Controls.Add(this.textBoxControlText);
             this.Controls.Add(this.label2);
             this.Name = "SetControlTextForm";
             this.Text = "SetControlTextForm";
@@ -109,8 +106,8 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxControlText;
         private System.Windows.Forms.Button noButton;
         private System.Windows.Forms.Button yesButton;
+        private System.Windows.Forms.TextBox textBoxControlText;
     }
 }

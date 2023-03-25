@@ -48,6 +48,7 @@ namespace OpPassword
         {
             selectedPasswordObject.Name = textBoxName.Text;
             selectedPasswordObject.Link = textBoxLink.Text;
+            selectedPasswordObject.ModifyDate = DateTime.Now;
 
             EncryptDecrypt encryptDecrypt = new EncryptDecrypt(password);
             selectedPasswordObject.Username = encryptDecrypt.Encrypt(textBoxUsername.Text);

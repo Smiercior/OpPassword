@@ -167,7 +167,7 @@ namespace OpPassword
             }    
         }
 
-        // Show password object data in nwe form
+        // Show password object data in new form
         private void displayButton_Click(object sender, EventArgs e)
         {
             if(ValidatePassword())
@@ -181,6 +181,8 @@ namespace OpPassword
                         {
                             detailForm.StartPosition = FormStartPosition.CenterParent;
                             var result = detailForm.ShowDialog(this);
+                            ClearList();
+                            ReadPasswordToList(passwordObjects);
                             SaveJsonData();
                         }
                     }

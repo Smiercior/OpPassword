@@ -27,10 +27,10 @@ namespace OpPassword
             filteredPasswordObjects = new List<PasswordObject>();
 
             // Check if passwords file exists
-            if (!File.Exists(fileName)) File.Create(fileName);
+            if (!File.Exists(fileName)) using (File.Create(fileName)) { };
 
             // Check if control text file exists
-            if (!File.Exists(fileName2)) File.Create(fileName2);
+            if (!File.Exists(fileName2)) using (File.Create(fileName2)) { };
 
             // Initialize form components
             InitializeComponent();
@@ -100,6 +100,7 @@ namespace OpPassword
                 return false;
             }
 
+            labelWarning.Text = "";
             return true;
         }
 
@@ -223,7 +224,7 @@ namespace OpPassword
                         string controlText = setControlTextForm.controlText;
                         string encryptedControlText = "";
 
-                        EncyprtDecrypt encryptDecrypt = new EncyprtDecrypt(textBoxPassword.Text);
+                        EncryptDecrypt encryptDecrypt = new EncryptDecrypt(textBoxPassword.Text);
                         encryptedControlText = encryptDecrypt.Encrypt(controlText);
                         File.WriteAllText(fileName2, encryptedControlText);
                     }
@@ -239,7 +240,7 @@ namespace OpPassword
                 string encryptedControlText = "";
                 string controlText = "";
 
-                EncyprtDecrypt encryptDecrypt = new EncyprtDecrypt(textBoxPassword.Text);
+                EncryptDecrypt encryptDecrypt = new EncryptDecrypt(textBoxPassword.Text);
                 encryptedControlText = File.ReadAllText(fileName2);
                 controlText = encryptDecrypt.Decrypt(encryptedControlText);
             

@@ -8,13 +8,13 @@ using System.Security.Cryptography;
 
 namespace OpPassword
 {
-    public class EncyprtDecrypt
+    public class EncryptDecrypt
     {
         private readonly byte[] key;
         private readonly byte[] iv;
 
         // Create key and iv using password
-        public EncyprtDecrypt(string password)
+        public EncryptDecrypt(string password)
         {
             byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
             key = SHA256.Create().ComputeHash(passwordBytes);

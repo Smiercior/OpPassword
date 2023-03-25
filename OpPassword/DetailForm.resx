@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="unlcokButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="unlockButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAM1JREFUOE+dkUEKwjAURP9CRMQTdOGqB+qJ5N+nuPQIrlz0JNJV6UJE/zQTGmKa
+        vwAADr8BOAVTJAAAAM1JREFUOE+dkUEKwjAURP9CRMQTdOGqB+qJ5N+nuPQIrlz0JNJV6UJE/zQTGmKa
         1A48CPP/DG0iSanURms8Cc41pwW5MEKfCHgrSlSuDNyMM8EZXsutjFR6Lld04FX0ejoZqby4vKMDD+wn
         ikoVrJLKYLwZBjgvMTAVSGU0fLjEyFSguWD5P909/FHgLm/WhoLHhNeGgvuEV6EAr4Dhkc6vMHM7yVfo
         OLwYJ+MQAQ8z7HRMBVJpDLwxFnJgp2EqkivBl+B3cCch8DALwiJfF1WeQbdSs1AAAAAASUVORK5CYII=
@@ -134,6 +134,16 @@
         CoMwEERDT5l+6EdP4kGKPalOZ1YFdzEbqP0YMNl5LxG0ACio42upwxvT9LB1FnasS0Zrg9c6rAyW5zin
         EsHsqCtGbJFt37A0JR7eumSvB1GSdLqFdEa2d8WP4vZOsBc0JOdEWPECRZJwqsHci7DiFpZbAsE/v8IF
         rFPjbaKkDR/FbGaCTqF3wB8+5bs/kw34IFsKH5FEXTIAyhfLz5gP2HDI8AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="lockButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAANBJREFUOE+dkTEOgkAURLcgxhhPQGHFgTiRFyKWHsHKgpMYKkNBDM6YZ1iBFXSS
+        lywz83+ADXPqQyhEJW7gc0H8XS4y1I+wt7xEpRMDZ3EAn+1V1NJSqaGcY9nL8RqstFTqKGdY9jK8Dist
+        lyj/tkDhXTwoGp9jYv/O2CCZbVRaomVskE3CDdZEzuisW6Dzi7ec0Vm94Gp4/GvBxfC4uMC34HCHNZEz
+        OrO3UBMexV5sR9hz5k7N2CCZpYjvO4U7JWOfciD8Jv4c/5MYe86i4RCeXfPmL/a5IskAAAAASUVORK5C
+        YII=
 </value>
   </data>
 </root>

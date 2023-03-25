@@ -41,8 +41,9 @@
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
-            this.unlcokButton = new System.Windows.Forms.Button();
+            this.unlockButton = new System.Windows.Forms.Button();
             this.noButton = new System.Windows.Forms.Button();
+            this.lockButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -68,6 +69,7 @@
             this.textBoxLink.ReadOnly = true;
             this.textBoxLink.Size = new System.Drawing.Size(242, 26);
             this.textBoxLink.TabIndex = 29;
+            this.textBoxLink.Click += new System.EventHandler(this.textBoxLink_Click);
             // 
             // label6
             // 
@@ -195,17 +197,18 @@
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // unlcokButton
+            // unlockButton
             // 
-            this.unlcokButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.unlcokButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("unlcokButton.BackgroundImage")));
-            this.unlcokButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.unlcokButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.unlcokButton.Location = new System.Drawing.Point(62, 539);
-            this.unlcokButton.Name = "unlcokButton";
-            this.unlcokButton.Size = new System.Drawing.Size(75, 34);
-            this.unlcokButton.TabIndex = 31;
-            this.unlcokButton.UseVisualStyleBackColor = false;
+            this.unlockButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.unlockButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("unlockButton.BackgroundImage")));
+            this.unlockButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.unlockButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.unlockButton.Location = new System.Drawing.Point(62, 539);
+            this.unlockButton.Name = "unlockButton";
+            this.unlockButton.Size = new System.Drawing.Size(75, 34);
+            this.unlockButton.TabIndex = 31;
+            this.unlockButton.UseVisualStyleBackColor = false;
+            this.unlockButton.Click += new System.EventHandler(this.unlockButton_Click);
             // 
             // noButton
             // 
@@ -220,14 +223,28 @@
             this.noButton.UseVisualStyleBackColor = false;
             this.noButton.Click += new System.EventHandler(this.noButton_Click);
             // 
+            // lockButton
+            // 
+            this.lockButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
+            this.lockButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lockButton.BackgroundImage")));
+            this.lockButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.lockButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lockButton.Location = new System.Drawing.Point(62, 539);
+            this.lockButton.Name = "lockButton";
+            this.lockButton.Size = new System.Drawing.Size(75, 34);
+            this.lockButton.TabIndex = 33;
+            this.lockButton.UseVisualStyleBackColor = false;
+            this.lockButton.Click += new System.EventHandler(this.lockButton_Click);
+            // 
             // DetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(326, 591);
+            this.Controls.Add(this.lockButton);
             this.Controls.Add(this.editButton);
-            this.Controls.Add(this.unlcokButton);
+            this.Controls.Add(this.unlockButton);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.textBoxLink);
             this.Controls.Add(this.label6);
@@ -261,7 +278,8 @@
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button noButton;
-        private System.Windows.Forms.Button unlcokButton;
+        private System.Windows.Forms.Button unlockButton;
         private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button lockButton;
     }
 }

@@ -41,15 +41,17 @@ namespace OpPassword
         {        
             if(ValidateTextBoxes())
             {
+                EncryptDecrypt encryptDecrypt = new EncryptDecrypt(password);
+
                 newPasswordObject = new PasswordObject();
                 newPasswordObject.Name = textBoxName.Text;
                 newPasswordObject.CreateDate = DateTime.Now;
                 newPasswordObject.ModifyDate = DateTime.Now;
-                newPasswordObject.Username = textBoxUsername.Text;
-                newPasswordObject.Email = textBoxEmail.Text;
-                newPasswordObject.Password = textBoxPassword.Text;
+                newPasswordObject.Username = encryptDecrypt.Encrypt(textBoxUsername.Text);
+                newPasswordObject.Email = encryptDecrypt.Encrypt(textBoxEmail.Text);
+                newPasswordObject.Password = encryptDecrypt.Encrypt(textBoxPassword.Text);
                 newPasswordObject.Link = textBoxLink.Text;
-                newPasswordObject.Other = textBoxOther.Text;
+                newPasswordObject.Other = encryptDecrypt.Encrypt(textBoxOther.Text);
 
                 this.DialogResult = DialogResult.Yes;
                 this.Close();     

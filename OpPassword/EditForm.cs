@@ -13,16 +13,27 @@ namespace OpPassword
     public partial class EditForm : Form
     {
         PasswordObject selectedPasswordObject;
-        public EditForm(PasswordObject selectedPasswordObject)
+
+        private string password { get; set; }
+        public EditForm(PasswordObject selectedPasswordObject, string password)
         {
             InitializeComponent();
             this.selectedPasswordObject = selectedPasswordObject;
+            this.password = password;
+            UpdateComponents();
+        }
+
+        // Update text boxes with password object data
+        private void UpdateComponents()
+        {
             textBoxName.Text = selectedPasswordObject.Name;
-            textBoxUsername.Text = selectedPasswordObject.Username;
-            textBoxEmail.Text = selectedPasswordObject.Email;
-            textBoxPassword.Text = selectedPasswordObject.Password;
             textBoxLink.Text = selectedPasswordObject.Link;
-            textBoxOther.Text = selectedPasswordObject.Other;
+
+            EncryptDecrypt encryptDecrypt = new EncryptDecrypt(password);
+            textBoxUsername.Text = encryptDecrypt.Decrypt(selectedPasswordObject.Username);
+            textBoxEmail.Text = encryptDecrypt.Decrypt(selectedPasswordObject.Email);
+            textBoxPassword.Text = encryptDecrypt.Decrypt(selectedPasswordObject.Password);
+            textBoxOther.Text = encryptDecrypt.Decrypt(selectedPasswordObject.Other);
         }
 
         // On no button click
@@ -36,11 +47,14 @@ namespace OpPassword
         private void yesButton_Click(object sender, EventArgs e)
         {
             selectedPasswordObject.Name = textBoxName.Text;
-            selectedPasswordObject.Username = textBoxUsername.Text;
-            selectedPasswordObject.Email = textBoxEmail.Text;
-            selectedPasswordObject.Password = textBoxPassword.Text;
             selectedPasswordObject.Link = textBoxLink.Text;
-            selectedPasswordObject.Other = textBoxOther.Text;
+
+            EncryptDecrypt encryptDecrypt = new EncryptDecrypt(password);
+            selectedPasswordObject.Username = encryptDecrypt.Encrypt(textBoxUsername.Text);
+            selectedPasswordObject.Email = encryptDecrypt.Encrypt(textBoxEmail.Text);
+            selectedPasswordObject.Password = encryptDecrypt.Encrypt(textBoxPassword.Text);
+            selectedPasswordObject.Other = encryptDecrypt.Encrypt(textBoxOther.Text);
+
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }

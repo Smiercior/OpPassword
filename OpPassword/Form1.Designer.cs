@@ -31,11 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.passwordList = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.passwordList2 = new System.Windows.Forms.ListBox();
-            this.passwordList3 = new System.Windows.Forms.ListBox();
             this.displayButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -46,6 +43,7 @@
             this.setControlTextButton = new System.Windows.Forms.Button();
             this.showControlTextButton = new System.Windows.Forms.Button();
             this.labelWarning = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -70,25 +68,6 @@
             this.textBoxPassword.Size = new System.Drawing.Size(178, 26);
             this.textBoxPassword.TabIndex = 3;
             // 
-            // passwordList
-            // 
-            this.passwordList.BackColor = System.Drawing.Color.Black;
-            this.passwordList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordList.ColumnWidth = 20;
-            this.passwordList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordList.ForeColor = System.Drawing.Color.White;
-            this.passwordList.FormattingEnabled = true;
-            this.passwordList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordList.ItemHeight = 20;
-            this.passwordList.Location = new System.Drawing.Point(43, 207);
-            this.passwordList.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.passwordList.Name = "passwordList";
-            this.passwordList.Size = new System.Drawing.Size(159, 240);
-            this.passwordList.TabIndex = 4;
-            this.passwordList.TabStop = false;
-            this.passwordList.UseTabStops = false;
-            this.passwordList.SelectedIndexChanged += new System.EventHandler(this.passwordList_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
@@ -101,44 +80,6 @@
             this.label2.Size = new System.Drawing.Size(465, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Name                          Create date                  Modify date";
-            // 
-            // passwordList2
-            // 
-            this.passwordList2.BackColor = System.Drawing.Color.Black;
-            this.passwordList2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordList2.ColumnWidth = 20;
-            this.passwordList2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordList2.ForeColor = System.Drawing.Color.White;
-            this.passwordList2.FormattingEnabled = true;
-            this.passwordList2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordList2.ItemHeight = 20;
-            this.passwordList2.Location = new System.Drawing.Point(192, 207);
-            this.passwordList2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.passwordList2.Name = "passwordList2";
-            this.passwordList2.Size = new System.Drawing.Size(159, 240);
-            this.passwordList2.TabIndex = 10;
-            this.passwordList2.TabStop = false;
-            this.passwordList2.UseTabStops = false;
-            this.passwordList2.SelectedIndexChanged += new System.EventHandler(this.passwordList2_SelectedIndexChanged);
-            // 
-            // passwordList3
-            // 
-            this.passwordList3.BackColor = System.Drawing.Color.Black;
-            this.passwordList3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordList3.ColumnWidth = 20;
-            this.passwordList3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordList3.ForeColor = System.Drawing.Color.White;
-            this.passwordList3.FormattingEnabled = true;
-            this.passwordList3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordList3.ItemHeight = 20;
-            this.passwordList3.Location = new System.Drawing.Point(349, 207);
-            this.passwordList3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.passwordList3.Name = "passwordList3";
-            this.passwordList3.Size = new System.Drawing.Size(159, 240);
-            this.passwordList3.TabIndex = 11;
-            this.passwordList3.TabStop = false;
-            this.passwordList3.UseTabStops = false;
-            this.passwordList3.SelectedIndexChanged += new System.EventHandler(this.passwordList3_SelectedIndexChanged);
             // 
             // displayButton
             // 
@@ -263,25 +204,36 @@
             this.labelWarning.TabIndex = 18;
             this.labelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.Black;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listView1.ForeColor = System.Drawing.Color.White;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(43, 207);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(465, 240);
+            this.listView1.TabIndex = 19;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(555, 542);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.showControlTextButton);
             this.Controls.Add(this.setControlTextButton);
             this.Controls.Add(this.textBoxPasswordConfirm);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.passwordList3);
-            this.Controls.Add(this.passwordList2);
             this.Controls.Add(this.displayButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.passwordList);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.textBoxName);
@@ -297,20 +249,18 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.ListBox passwordList;
         private System.Windows.Forms.Label label2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button displayButton;
-        private System.Windows.Forms.ListBox passwordList2;
-        private System.Windows.Forms.ListBox passwordList3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxPasswordConfirm;
         private System.Windows.Forms.Button setControlTextButton;
         private System.Windows.Forms.Button showControlTextButton;
         private System.Windows.Forms.Label labelWarning;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

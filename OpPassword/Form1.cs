@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.IO;
+using System.Net;
 
 namespace OpPassword
 {
@@ -35,11 +36,18 @@ namespace OpPassword
             // Initialize form components
             InitializeComponent();
 
+            // Set certain list view attributes
+            listView1.Columns.Add("Kolumna 1").Width = listView1.Width/3 - 5;
+            listView1.Columns.Add("Kolumna 2").Width = listView1.Width / 3 - 5;
+            listView1.Columns.Add("Kolumna 3").Width = listView1.Width / 3 - 5;
+            listView1.View = View.Details;
+            listView1.HeaderStyle = ColumnHeaderStyle.None;
+
             // Read all passwords
             ReadJsonData();
 
             // Read password to password list
-            ReadPasswordToList(passwordObjects);        
+            ReadPasswordToList(passwordObjects);    
         }
 
         // Save list of PasswordObject to file
@@ -67,18 +75,17 @@ namespace OpPassword
         {
             foreach (PasswordObject passwordObject in passwordObjects)
             {
-                passwordList.Items.Add(passwordObject.Name);
-                passwordList2.Items.Add(passwordObject.CreateDate.Date.ToString("yyyy/MM/dd"));
-                passwordList3.Items.Add(passwordObject.ModifyDate.Date.ToString("yyyy/MM/dd"));
+                ListViewItem item = new ListViewItem(passwordObject.Name);
+                item.SubItems.Add(passwordObject.CreateDate.Date.ToString("yyyy/MM/dd"));
+                item.SubItems.Add(passwordObject.ModifyDate.Date.ToString("yyyy/MM/dd"));
+                listView1.Items.Add(item);
             }
         }
 
         // Clear passwords from password list
         void ClearList()
         {
-            passwordList.Items.Clear();
-            passwordList2.Items.Clear();
-            passwordList3.Items.Clear();
+            listView1.Items.Clear();
         }
 
         // Check if password is correct
@@ -125,9 +132,10 @@ namespace OpPassword
         // Remove selected password from password list
         private void removeButton_Click(object sender, EventArgs e)
         {
-            if (passwordList.SelectedItem != null)
+
+            if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0] != null)
             {
-                string name = passwordList.SelectedItem.ToString();
+                string name = listView1.SelectedItems[0].Text;
 
                 using(var delForm = new DelForm(name))
                 {
@@ -139,6 +147,7 @@ namespace OpPassword
                         passwordObjects.Remove(passwordObjects.Find((passwordObject) => passwordObject.Name == name));
                         ClearList();
                         ReadPasswordToList(passwordObjects);
+                        SaveJsonData();
                     }
                 }
             }
@@ -172,9 +181,9 @@ namespace OpPassword
         {
             if(ValidatePassword())
             {
-                if (passwordList.SelectedItem != null)
+                if (listView1.SelectedItems.Count > 0 && listView1.SelectedItems[0] != null)
                 {
-                    PasswordObject selectedPasswordObject = passwordObjects.Find((passwordObject) => passwordObject.Name == passwordList.SelectedItem.ToString());
+                    PasswordObject selectedPasswordObject = passwordObjects.Find((passwordObject) => passwordObject.Name == listView1.SelectedItems[0].Text);
                     if (selectedPasswordObject != null)
                     {
                         using (var detailForm = new DetailForm(selectedPasswordObject, textBoxPassword.Text))
@@ -188,27 +197,6 @@ namespace OpPassword
                     }
                 }
             }         
-        }
-
-        private void passwordList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = passwordList.SelectedIndex;
-            passwordList2.SelectedIndex = index;
-            passwordList3.SelectedIndex = index;
-        }
-
-        private void passwordList2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = passwordList2.SelectedIndex;
-            passwordList.SelectedIndex = index;
-            passwordList3.SelectedIndex = index;
-        }
-
-        private void passwordList3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = passwordList3.SelectedIndex;
-            passwordList.SelectedIndex = index;
-            passwordList2.SelectedIndex = index;
         }
 
         // On set control text button click, open a new form, where the user can type control text
